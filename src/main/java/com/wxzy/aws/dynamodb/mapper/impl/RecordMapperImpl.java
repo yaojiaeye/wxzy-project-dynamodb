@@ -8,6 +8,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * @author <a href="jiayao:little@163.com">little</a>
  * version: 1.0
@@ -24,5 +26,12 @@ public class RecordMapperImpl  implements RecordMapper {
     public void save(ScaleRecord scaleRecord) {
         final DynamoDBMapper mapper = new DynamoDBMapper(this.amazonDynamoDB);
         mapper.save(scaleRecord);
+    }
+
+    @Override
+    public List<DynamoDBMapper.FailedBatch> batchSave(List<ScaleRecord> scaleRecords) {
+        final DynamoDBMapper mapper = new DynamoDBMapper(this.amazonDynamoDB);
+        List<DynamoDBMapper.FailedBatch> failedBatches = mapper.batchSave(scaleRecords);
+        return failedBatches;
     }
 }
