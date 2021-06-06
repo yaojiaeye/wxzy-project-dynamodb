@@ -1,58 +1,33 @@
-package com.wxzy.aws.dynamodb.config;// package com.wxzy.aws.dynamodb.config;
-//
-// import org.springframework.beans.factory.annotation.Qualifier;
-// import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
-// import org.springframework.boot.context.properties.ConfigurationProperties;
-// import org.springframework.context.annotation.Bean;
-// import org.springframework.context.annotation.Configuration;
-// import org.springframework.context.annotation.Primary;
-// import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
-// import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-// import org.springframework.data.redis.core.RedisTemplate;
-// import org.springframework.data.redis.serializer.StringRedisSerializer;
-//
-/// **
-// * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
-// **/
-// @Configuration
-// public class RedisConfig {
-//
-// /**
-// *
-// * @return
+///*
+// * Copyright(c) 2020 Wyze Labs, All Rights Reserved.
 // */
-// @Primary
-// @Bean
-// @ConfigurationProperties(prefix = "spring.cache.redis.shop")
-// public RedisProperties shopRedisProperties() {
-// return new RedisProperties();
-// }
 //
-// /**
-// *
-// * @param properties
-// * @return
-// */
-// @Bean
-// public RedisTemplate shopRedisTemplate(@Qualifier("shopRedisProperties") final RedisProperties properties) {
-// return this.redisTemplate(properties);
-// }
+//package com.wxzy.aws.dynamodb.config;
 //
-// private RedisTemplate redisTemplate(final RedisProperties properties) {
+//import org.springframework.context.annotation.Bean;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.data.redis.connection.RedisConnectionFactory;
+//import org.springframework.data.redis.core.RedisTemplate;
+//import org.springframework.data.redis.serializer.StringRedisSerializer;
 //
-// final RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-// configuration.setHostName(properties.getHost());
-// configuration.setPort(properties.getPort());
-// configuration.setDatabase(properties.getDatabase());
+//@Configuration
+//public class RedisConfig {
 //
-// final JedisConnectionFactory factory = new JedisConnectionFactory(configuration);
+//    /**
+//     * redisTemplate
+//     *
+//     * @return
+//     */
+//    @Bean("redisTemplate")
+//    public RedisTemplate<String, String> redisTemplate(final RedisConnectionFactory redisConnectionFactory) {
 //
-// final RedisTemplate redisTemplate = new RedisTemplate();
-// redisTemplate.setConnectionFactory(factory);
-// redisTemplate.setKeySerializer(new StringRedisSerializer());
-// redisTemplate.setValueSerializer(new StringRedisSerializer());
-// redisTemplate.setHashKeySerializer(new StringRedisSerializer());
-// redisTemplate.setHashValueSerializer(new StringRedisSerializer());
-// return redisTemplate;
-// }
-// }
+//        final RedisTemplate<String, String> redisTemplate = new RedisTemplate<>();
+//        redisTemplate.setConnectionFactory(redisConnectionFactory);
+//        redisTemplate.setKeySerializer(new StringRedisSerializer());
+//        redisTemplate.setValueSerializer(new StringRedisSerializer());
+//        redisTemplate.setHashKeySerializer(new StringRedisSerializer());
+//        redisTemplate.setHashValueSerializer(new StringRedisSerializer());
+//        return redisTemplate;
+//    }
+//
+//}

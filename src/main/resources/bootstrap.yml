@@ -1,0 +1,57 @@
+server:
+  port: 5000
+  connectionTimeout: 30000
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 400
+    acceptCount: 200
+    max-connections: 10000
+
+spring:
+  application:
+    name: wxzy-project-dynamodb
+  profiles:
+    active: dev
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  redis:
+    expire-time:
+      bind_token: 10
+  cloud:
+    gateway:
+      httpclient:
+        pool:
+          maxIdleTime: 28000
+
+# mybatis
+mybatis:
+  mapper-locations: classpath:mybatis/*Mapper.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+service:
+  version: 2.14.4
+  fitbit:
+    # 重试次数AsyncServiceImpl.
+    retry-times: 1
+    # 重试间隔
+    retry-sleep-time: 5000
+  async:
+    core-pool-size: 10
+    maximumPoolSize: 30
+    keep-alive-time: 10
+    queue-capacity: 100
+
+management:
+  endpoints:
+    web:
+      base-path: /test
+      exposure:
+        include: refresh
+
+wyze:
+  log:
+    stdout:
+      enable: true
