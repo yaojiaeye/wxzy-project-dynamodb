@@ -1,5 +1,12 @@
 package com.wxzy.aws.dynamodb.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.wxzy.aws.dynamodb.mapper.RecordMapper;
 import com.wxzy.aws.dynamodb.model.enums.RecordDeleteEnum;
@@ -8,13 +15,8 @@ import com.wxzy.aws.dynamodb.model.input.ScaleRecordInput;
 import com.wxzy.aws.dynamodb.model.pojo.ScaleRecord;
 import com.wxzy.aws.dynamodb.service.RecordService;
 import com.wyze.common.util.StringUtil;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
@@ -22,6 +24,8 @@ import java.util.UUID;
 @Service
 @Slf4j
 public class RecordServiceImpl implements RecordService {
+
+    private static final Integer LATEST_RECORD_NUMBER = 2;
 
     @Autowired
     private RecordMapper recordMapper;
@@ -57,5 +61,17 @@ public class RecordServiceImpl implements RecordService {
         if (!fails.isEmpty()) {
             log.error(fails.toString());
         }
+    }
+
+    @Override
+    public List<ScaleRecord> getLatestRecord(String userId, String familyId) {
+        List<ScaleRecord> records = recordMapper.queryByUserIdAndFamilyMemberId(userId, familyId);
+        final List<ScaleRecord> resultList = new ArrayList<>();
+        final int number = LATEST_RECORD_NUMBER >= records.size() ? records.size() : LATEST_RECORD_NUMBER;
+        for (int i = 0; i < number; i++) {
+            final ScaleRecord scaleRecord = records.get(i);
+            resultList.add(scaleRecord);
+        }
+        return resultList;
     }
 }

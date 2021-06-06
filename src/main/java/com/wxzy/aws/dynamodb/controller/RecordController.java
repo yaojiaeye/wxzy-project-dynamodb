@@ -1,21 +1,21 @@
 package com.wxzy.aws.dynamodb.controller;
 
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
 import com.wxzy.aws.dynamodb.model.input.ScaleRecordInput;
 import com.wxzy.aws.dynamodb.model.input.ScaleRecordListInput;
+import com.wxzy.aws.dynamodb.model.pojo.ScaleRecord;
 import com.wxzy.aws.dynamodb.service.RecordService;
 import com.wyze.common.exception.GeneralException;
 import com.wyze.common.response.ResultCode;
 import com.wyze.common.response.ResultModel;
 import com.wyze.common.response.ResultUtil;
-import com.wyze.common.util.SessionUtil;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.validation.Valid;
 
 /**
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
@@ -65,6 +65,24 @@ public class RecordController {
         final String userId = "20133439";
         this.recordService.addScaleRecordList(userId, scaleRecordListInput.getScaleRecordInputList());
         return ResultUtil.success();
+    }
+
+    /**
+     * get the user's last two measurement data
+     * 
+     * @param familyId
+     * @return
+     */
+    @PostMapping("/get_latest_record")
+    public ResultModel
+        getLatestRecord(@RequestParam(value = "family_member_id", required = false) final String familyId) {
+        final String userId = "20133439";
+        String controllerFamilyMemberId = familyId;
+        if (controllerFamilyMemberId == null) {
+            controllerFamilyMemberId = userId;
+        }
+        List<ScaleRecord> scaleRecordList = this.recordService.getLatestRecord(userId, controllerFamilyMemberId);
+        return ResultUtil.success(scaleRecordList, scaleRecordList.size(), scaleRecordList.size());
     }
 
 }
