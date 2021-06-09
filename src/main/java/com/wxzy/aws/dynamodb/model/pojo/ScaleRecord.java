@@ -1,12 +1,11 @@
 package com.wxzy.aws.dynamodb.model.pojo;
-import com.alibaba.fastjson.annotation.JSONField;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBHashKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBIndexRangeKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBRangeKey;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBTable;
-import lombok.Data;
+
 import java.io.Serializable;
+
+import com.alibaba.fastjson.annotation.JSONField;
+import com.amazonaws.services.dynamodbv2.datamodeling.*;
+
+import lombok.Data;
 
 @DynamoDBTable(tableName = "t_scale_record")
 @Data
@@ -21,11 +20,11 @@ public class ScaleRecord implements Serializable {
     private Long measureTs;
 
     @JSONField(name = "device_id")
-//    @DynamoDBIndexRangeKey(localSecondaryIndexName = "user_id-device_id-index", attributeName = "device_id")
+    @DynamoDBIndexRangeKey(localSecondaryIndexName = "user_id-device_id-index", attributeName = "device_id")
     private String deviceId;
 
     @JSONField(name = "data_id")
-//    @DynamoDBIndexRangeKey(localSecondaryIndexName = "user_id-data_id-index", attributeName = "data_id")
+    @DynamoDBIndexRangeKey(localSecondaryIndexName = "user_id-data_id-index", attributeName = "data_id")
     private Long dataId;
 
     @DynamoDBAttribute
@@ -103,7 +102,7 @@ public class ScaleRecord implements Serializable {
     @DynamoDBAttribute(attributeName = "body_vfr")
     private Integer bodyVfr;
 
-    //身体年龄，6-99， 岁
+    // 身体年龄，6-99， 岁
     @JSONField(name = "metabolic_age")
     @DynamoDBAttribute(attributeName = "metabolic_age")
     private Integer metabolicAge;

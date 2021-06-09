@@ -1,9 +1,11 @@
 package com.wxzy.aws.dynamodb.service;
 
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.wxzy.aws.dynamodb.mapper.RecordMapper;
-import com.wxzy.aws.dynamodb.model.input.ScaleRecordInput;
-import com.wxzy.aws.dynamodb.service.impl.RecordServiceImpl;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -12,12 +14,11 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.wxzy.aws.dynamodb.mapper.RecordMapper;
+import com.wxzy.aws.dynamodb.model.input.ScaleRecordInput;
+import com.wxzy.aws.dynamodb.model.pojo.ScaleRecord;
+import com.wxzy.aws.dynamodb.service.impl.RecordServiceImpl;
 
 /**
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
@@ -64,5 +65,13 @@ public class RecordServiceImplTest {
         when(this.recordMapper.batchSave(any())).thenReturn(failedBatches);
         this.recordService.addScaleRecordList(this.userId, records);
         verify(this.recordMapper, times(1)).batchSave(any());
+    }
+
+    @Test
+    public void getLatestRecord_ok() {
+        final List<ScaleRecord> scaleRecordList = new ArrayList<>();
+        when(this.recordMapper.queryByUserIdAndFamilyMemberId(anyString(), anyString())).thenReturn(scaleRecordList);
+        this.recordService.getLatestRecord(anyString(), anyString());
+        verify(this.recordMapper, times(1)).queryByUserIdAndFamilyMemberId(anyString(), anyString());
     }
 }

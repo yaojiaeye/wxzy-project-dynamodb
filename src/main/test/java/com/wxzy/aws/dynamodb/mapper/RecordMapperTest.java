@@ -1,25 +1,24 @@
 package com.wxzy.aws.dynamodb.mapper;
 
-import com.amazonaws.client.builder.AwsClientBuilder;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
-import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
-import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
-import com.amazonaws.services.dynamodbv2.model.BillingMode;
-import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
-import com.amazonaws.services.dynamodbv2.model.Projection;
-import com.amazonaws.services.dynamodbv2.model.ProjectionType;
-import com.wxzy.aws.dynamodb.mapper.impl.RecordMapperImpl;
-import com.wxzy.aws.dynamodb.model.pojo.ScaleRecord;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.*;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.testcontainers.containers.GenericContainer;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import com.amazonaws.client.builder.AwsClientBuilder;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.amazonaws.services.dynamodbv2.model.BillingMode;
+import com.amazonaws.services.dynamodbv2.model.CreateTableRequest;
+import com.wxzy.aws.dynamodb.mapper.impl.RecordMapperImpl;
+import com.wxzy.aws.dynamodb.model.pojo.ScaleRecord;
 
 /**
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
@@ -98,6 +97,13 @@ public class RecordMapperTest {
         list.add(scaleRecord);
         List<DynamoDBMapper.FailedBatch> batches = this.recordMapper.batchSave(list);
         assertEquals(batches.size(), 0);
+    }
+
+    @Test
+    public void queryRecordList_OK() {
+        List<ScaleRecord> recordList = this.recordMapper.getRecordList(this.userId, 0L, this.ts, true, this.userId);
+        assertEquals(recordList.isEmpty(), false);
+        assertEquals(recordList.get(0).getUserId(), this.userId);
     }
 
 }

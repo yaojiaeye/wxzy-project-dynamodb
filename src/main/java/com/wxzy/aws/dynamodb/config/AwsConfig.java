@@ -1,5 +1,10 @@
 package com.wxzy.aws.dynamodb.config;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
 import com.amazonaws.auth.BasicAWSCredentials;
@@ -7,22 +12,21 @@ import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.wyze.awsutils.secretsmanager.SecretsManagerHelper;
+
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
 
 @Slf4j
 @Configuration
 public class AwsConfig {
 
-
     @Value("${spring.profiles.active}")
-    private String profile ;
+    private String profile;
 
     @Value("${aws.region}")
-    private String region ;
+    private String region;
+
+    // @Value("${aws.sessionToken}")
+    // private String session;
 
     /**
      * @param accessKey
@@ -35,6 +39,8 @@ public class AwsConfig {
         @Value("${aws.secret-key}") final String secretKey) {
 
         final BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+
+        // final BasicSessionCredentials credentials = new BasicSessionCredentials(accessKey, secretKey, session);
 
         final AWSStaticCredentialsProvider provider = new AWSStaticCredentialsProvider(credentials);
 

@@ -2,6 +2,7 @@ package com.wxzy.aws.dynamodb.service;
 
 import java.util.List;
 
+import com.wxzy.aws.dynamodb.model.input.DataIDListInput;
 import com.wxzy.aws.dynamodb.model.input.ScaleRecordInput;
 import com.wxzy.aws.dynamodb.model.pojo.ScaleRecord;
 
@@ -17,4 +18,11 @@ public interface RecordService {
     void addScaleRecordList(String userId, List<ScaleRecordInput> scaleRecordInputList);
 
     List<ScaleRecord> getLatestRecord(String userId, String familyId);
+
+    void removeScaleRecordList(String userId, DataIDListInput dataIdList);
+
+    List<ScaleRecord> getRecordList(String userId, String familyId, Long startTime, Long endTime, Boolean forward);
+
+    List<ScaleRecord> getRecordListByNumber(String userId, String familyId, Integer recordNum, Long endTime,
+        Boolean forward);
 }

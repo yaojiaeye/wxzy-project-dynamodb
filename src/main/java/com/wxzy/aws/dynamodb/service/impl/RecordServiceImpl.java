@@ -11,6 +11,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.wxzy.aws.dynamodb.mapper.RecordMapper;
 import com.wxzy.aws.dynamodb.model.enums.RecordDeleteEnum;
 import com.wxzy.aws.dynamodb.model.helper.ScaleRecordHelper;
+import com.wxzy.aws.dynamodb.model.input.DataIDListInput;
 import com.wxzy.aws.dynamodb.model.input.ScaleRecordInput;
 import com.wxzy.aws.dynamodb.model.pojo.ScaleRecord;
 import com.wxzy.aws.dynamodb.service.RecordService;
@@ -73,5 +74,30 @@ public class RecordServiceImpl implements RecordService {
             resultList.add(scaleRecord);
         }
         return resultList;
+    }
+
+    @Override
+    public void removeScaleRecordList(String userId, DataIDListInput dataIdList) {
+        final List<ScaleRecord> listTobeDelete = new ArrayList<>();
+        for (final Long dataId : dataIdList.getDataIdList()) {
+            final List<ScaleRecord> scaleRecordList = this.recordMapper.queryByUserIdAndDataId(userId, dataId);
+            listTobeDelete.addAll(scaleRecordList);
+        }
+        final List<DynamoDBMapper.FailedBatch> fails = this.recordMapper.batchDelete(listTobeDelete);
+        if (!fails.isEmpty()) {
+            log.error(fails.toString());
+        }
+    }
+
+    @Override
+    public List<ScaleRecord> getRecordList(String userId, String familyId, Long startTime, Long endTime,
+        Boolean forward) {
+        return recordMapper.getRecordList(userId, startTime, endTime, forward, familyId);
+    }
+
+    @Override
+    public List<ScaleRecord> getRecordListByNumber(String userId, String familyId, Integer recordNum, Long endTime,
+        Boolean forward) {
+        return recordMapper.getRecordListByNum(userId, familyId, recordNum, endTime, forward);
     }
 }

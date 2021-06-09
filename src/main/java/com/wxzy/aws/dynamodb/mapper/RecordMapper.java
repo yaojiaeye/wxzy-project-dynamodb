@@ -14,4 +14,14 @@ public interface RecordMapper {
     List<DynamoDBMapper.FailedBatch> batchSave(List<ScaleRecord> scaleRecords);
 
     List<ScaleRecord> queryByUserIdAndFamilyMemberId(String userId, String familyMemberId);
+
+    List<ScaleRecord> queryByUserIdAndDataId(String userId, Long dataId);
+
+    List<DynamoDBMapper.FailedBatch> batchDelete(List<ScaleRecord> scaleRecords);
+
+    List<ScaleRecord> getRecordList(String userId, Long startTime, Long endTime, Boolean forward,
+        String familyMemberId);
+
+    List<ScaleRecord> getRecordListByNum(String userId, String familyId, Integer recordNum, Long endTime,
+        Boolean forward);
 }
