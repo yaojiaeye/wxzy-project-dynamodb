@@ -19,7 +19,7 @@ import com.amazonaws.services.s3.model.ObjectListing;
 import com.amazonaws.services.s3.model.S3Object;
 import com.amazonaws.services.s3.model.S3ObjectSummary;
 import com.wxzy.aws.dynamodb.model.helper.DynamodbTestHelper;
-import com.wxzy.aws.dynamodb.task.Download;
+import com.wxzy.aws.dynamodb.task.DownloadS3File;
 
 /**
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:实现从Amazon S3文件的下载
@@ -39,10 +39,7 @@ public class TestXferMgrDownload {
     private static final String SPLIT_LINE = "\\/";
 
     static final BasicSessionCredentials credentials =
-        new BasicSessionCredentials(ACCESS_KEY, SECRET_KEY, DynamodbTestHelper.session_token);
-
-    // static final ListObjectsRequest listObjectsRequest =
-    // new ListObjectsRequest().withBucketName(BUCKET_NAME).withPrefix("scale/2021-06-06/");
+        new BasicSessionCredentials(ACCESS_KEY, SECRET_KEY, DynamodbTestHelper.SESSION_TOKEN);
 
     static final ListObjectsRequest listObjectsRequest =
         new ListObjectsRequest(BUCKET_NAME, "scale/2021-05-08/", null, null, 4000);
@@ -93,8 +90,8 @@ public class TestXferMgrDownload {
             current = s3.listNextBatchOfObjects(current);
             keyList.addAll(current.getObjectSummaries());
         }
-        Download download = new Download();
-        download.build(keyList);
+        DownloadS3File downloadS3File = new DownloadS3File();
+        // download.build(keyList);
     }
 
 }

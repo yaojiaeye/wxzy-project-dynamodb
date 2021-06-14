@@ -25,9 +25,6 @@ public class AwsConfig {
     @Value("${aws.region}")
     private String region;
 
-    // @Value("${aws.sessionToken}")
-    // private String session;
-
     /**
      * @param accessKey
      * @param secretKey
@@ -39,8 +36,6 @@ public class AwsConfig {
         @Value("${aws.secret-key}") final String secretKey) {
 
         final BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
-
-        // final BasicSessionCredentials credentials = new BasicSessionCredentials(accessKey, secretKey, session);
 
         final AWSStaticCredentialsProvider provider = new AWSStaticCredentialsProvider(credentials);
 

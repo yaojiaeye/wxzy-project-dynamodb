@@ -27,7 +27,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
  **/
 @Slf4j
-public class Download {
+public class DownloadS3File {
 
     private static final String ACCESS_KEY = "ASIA5G2LGWHZSPAMVFNW";
 
@@ -41,11 +41,11 @@ public class Download {
 
     private static final String SPLIT_LINE = "\\/";
 
-    static final BasicSessionCredentials credentials =
-        new BasicSessionCredentials(ACCESS_KEY, SECRET_KEY, DynamodbTestHelper.session_token);
+    static final BasicSessionCredentials CREDENTIALS =
+        new BasicSessionCredentials(ACCESS_KEY, SECRET_KEY, DynamodbTestHelper.SESSION_TOKEN);
 
-    private static final AmazonS3 s3 =
-        AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(credentials))
+    private static final AmazonS3 AMAZON_S_3 =
+        AmazonS3ClientBuilder.standard().withCredentials(new AWSStaticCredentialsProvider(CREDENTIALS))
             // 设置服务器所属地区
             .withRegion(REGION_NAME).build();
 
@@ -58,10 +58,10 @@ public class Download {
         if (null != keyList && keyList.size() > 0) {
             ThreadFactory nameThreadFactory = new ThreadFactoryBuilder().setNameFormat("download-pool").build();
             ThreadPoolExecutor poolExecutor = new ThreadPoolExecutor(30, 40, 0L, TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(4000), nameThreadFactory, new ThreadPoolExecutor.AbortPolicy());
+                new LinkedBlockingQueue<>(3000), nameThreadFactory, new ThreadPoolExecutor.AbortPolicy());
             for (S3ObjectSummary summary : keyList) {
-                TaskDownlod taskDownlod = new TaskDownlod(summary.getKey());
-                poolExecutor.submit(taskDownlod);
+                TaskDownlodS3 taskDownlodS3 = new TaskDownlodS3(summary.getKey());
+                poolExecutor.submit(taskDownlodS3);
             }
             poolExecutor.shutdown();
         }
@@ -72,7 +72,7 @@ public class Download {
         String[] splitPath = fileObject.getKey().split(SPLIT_LINE);
         String downlodTgzBasePath = DynamodbTestHelper.S3_FILE_PATH + ROOT_PATH
             + fileObject.getKey().substring(0, fileObject.getKey().length() - 1);
-        String updateTgzPath = downlodTgzBasePath + ROOT_PATH + splitPath[splitPath.length - 1];
+        String downlodTgzPath = downlodTgzBasePath + ROOT_PATH + splitPath[splitPath.length - 1];
         File uploadPathDir = new File(downlodTgzBasePath);
         try {
             if (!uploadPathDir.exists()) {
@@ -80,7 +80,7 @@ public class Download {
                     throw new IOException(String.format("mkdirs error, path=%s", uploadPathDir.getCanonicalPath()));
                 }
             }
-            IOUtils.copy(fileObject.getObjectContent(), new FileOutputStream(updateTgzPath));
+            IOUtils.copy(fileObject.getObjectContent(), new FileOutputStream(downlodTgzPath));
         } catch (IOException e) {
             log.error("文件复制流出错", e);
         }
@@ -94,7 +94,7 @@ public class Download {
         S3Object s3Object = null;
         try {
             Thread.sleep(200);
-            s3Object = s3.getObject(bucketName, key);
+            s3Object = AMAZON_S_3.getObject(bucketName, key);
         } catch (AmazonServiceException e) {
         } catch (Exception e) {
         }

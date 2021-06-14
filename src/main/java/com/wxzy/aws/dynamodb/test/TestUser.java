@@ -23,8 +23,8 @@ public class TestUser {
 
     public static void main(String[] args) throws Exception {
 
-        AmazonDynamoDB client = getClient(DynamodbTestHelper.accessKey, DynamodbTestHelper.secretKey,
-            DynamodbTestHelper.session, "us-west-2");
+        AmazonDynamoDB client = getClient(DynamodbTestHelper.ACCESS_KEY, DynamodbTestHelper.SECRET_KEY,
+            DynamodbTestHelper.SESSION, "us-west-2");
         DynamoDBMapper mapper = new DynamoDBMapper(client);
         List<UserProfileOutPut> userProfileList = new ArrayList<>();
         InputStream inputStream = new FileInputStream(new File(DynamodbTestHelper.FILE_PATH));
