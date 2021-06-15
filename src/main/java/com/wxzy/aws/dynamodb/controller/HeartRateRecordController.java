@@ -34,6 +34,7 @@ public class HeartRateRecordController {
             throw new GeneralException(ResultCode.ParameterError, result.getFieldError().getDefaultMessage());
         }
         final String userId = "20133439";
+        System.out.println("用户请求数据" + input);
         this.heartRateRecordService.addHeartRateRecord(userId, input);
         return ResultUtil.success();
     }
