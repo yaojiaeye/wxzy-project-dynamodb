@@ -19,9 +19,12 @@ import com.wyze.common.response.ResultCode;
 import com.wyze.common.response.ResultModel;
 import com.wyze.common.response.ResultUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
  **/
+@Slf4j
 @RestController
 @RequestMapping("/plugin/scale")
 public class RecordController {
@@ -38,6 +41,7 @@ public class RecordController {
             throw new GeneralException(ResultCode.ParameterError, result.getFieldError().getDefaultMessage());
         }
         final String userId = "20133439";
+        log.info("用户请求信息 userId  {} ", userId);
         this.recordService.addScaleRecord(userId, scaleRecordInput);
         return ResultUtil.success();
     }
