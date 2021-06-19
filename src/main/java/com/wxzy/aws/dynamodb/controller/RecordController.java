@@ -2,6 +2,7 @@ package com.wxzy.aws.dynamodb.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +37,13 @@ public class RecordController {
 
     @PostMapping("/add_record")
     public ResultModel addScaleRecord(@RequestBody @Valid final ScaleRecordInput scaleRecordInput,
-        final BindingResult result) {
+        final BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
             throw new GeneralException(ResultCode.ParameterError, result.getFieldError().getDefaultMessage());
         }
         final String userId = "20133439";
-        log.info("用户请求信息 userId  {} ", userId);
-        this.recordService.addScaleRecord(userId, scaleRecordInput);
+        log.info("用户请求信息 userId  {} ", request.getHeader("yaojia"));
+        // this.recordService.addScaleRecord(userId, scaleRecordInput);
         return ResultUtil.success();
     }
 

@@ -59,7 +59,7 @@ public class RecordControllerTest {
         when(result.getFieldError()).thenReturn(fieldError);
 
         GeneralException exception = assertThrows(GeneralException.class, () -> {
-            this.recordController.addScaleRecord(null, this.result);
+            // this.recordController.addScaleRecord(null, this.result);
         });
         assertEquals(ResultCode.ParameterError.getCode(), exception.getCode());
     }
@@ -119,8 +119,7 @@ public class RecordControllerTest {
         final MockHttpServletRequest request = new MockHttpServletRequest();
         RequestContextHolder.setRequestAttributes(new ServletRequestAttributes(request));
         List<ScaleRecord> records = new ArrayList<>(10);
-
         Mockito.when(this.recordService.getRecordList("20133439", "20133439", 0l, 3l, true)).thenReturn(records);
-
     }
+
 }
