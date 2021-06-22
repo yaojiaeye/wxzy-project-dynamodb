@@ -24,4 +24,8 @@ public class ListAirQualityResponse {
     @JSONField(name = "data")
     private List<FiresDailyApiData> data;
 
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
+    }
+
 }

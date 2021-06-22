@@ -2,6 +2,7 @@ package com.wxzy.aws.dynamodb.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.apache.commons.validator.DateValidator;
@@ -17,9 +18,12 @@ import com.wxzy.aws.dynamodb.model.enums.TreeSubtypesEnum;
 import com.wxzy.aws.dynamodb.model.pojo.DeviceZone;
 import com.wxzy.aws.dynamodb.service.DeviceZoneService;
 import com.wyze.common.exception.GeneralException;
+import com.wyze.common.request.BodyReaderHttpServletRequestWrapper;
 import com.wyze.common.response.ResultCode;
 import com.wyze.common.response.ResultModel;
 import com.wyze.common.response.ResultUtil;
+import com.wyze.common.util.EncryptUtil;
+import com.wyze.common.util.HMacMD5Util;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -34,7 +38,8 @@ public class PluginController {
     private DeviceZoneService deviceZoneService;
 
     @PostMapping("/zone")
-    public ResultModel saveZone(@RequestBody @Valid final DeviceZone deviceZone, final BindingResult result) {
+    public ResultModel saveZone(@RequestBody @Valid final DeviceZone deviceZone, final BindingResult result,
+        HttpServletRequest request) {
         if (result.hasErrors()) {
             throw new GeneralException(ResultCode.ParameterError, result.getFieldError().getDefaultMessage());
         }
@@ -69,8 +74,21 @@ public class PluginController {
                 }
             }
         }
-        this.deviceZoneService.saveZone(deviceZone);
-        this.deviceZoneService.saveZoneWithoutSqs(deviceZone);
+
+        try {
+            final BodyReaderHttpServletRequestWrapper requestWrapper = new BodyReaderHttpServletRequestWrapper(request);
+            String accessToken =
+                "lvtx.Tl3UIsNWk0v9ULkhw4PDf0bNr7C+yHPVWr95enUEX9IHqP0SJlSbYRKN/v+8/mD4ga/Xd9cOszRG43Dhomskk0IZRAo58jV9qxkiqac5sWz0BhP779mnR1Svab5l6WFCRym+p/NV0O+cyphyeEFiDRdu0cbGiVhmMjA8FIwu8HTvoVsSpSDZahswxeqIRgjAu9KQOA==";
+            String appKey = "XXXXXXXXXXXXXXXXX";
+            final String md5 = EncryptUtil.getMD5(accessToken + appKey);
+            final String oldSign = HMacMD5Util.HMacMD5Signature(md5, HMacMD5Util.getSignBody(requestWrapper));
+            System.out.println(oldSign + "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        // this.deviceZoneService.saveZone(deviceZone);
+        // this.deviceZoneService.saveZoneWithoutSqs(deviceZone);
         return ResultUtil.success();
     }
 }
