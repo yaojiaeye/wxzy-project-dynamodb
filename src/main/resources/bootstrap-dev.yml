@@ -1,0 +1,38 @@
+server:
+  port: 9090
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/wyze-scale?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8&autoReconnect=true
+    username: root
+    password: mysqladmin
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 1
+      min-idle: 5
+      max-active: 10
+      max-wait: 3000
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+#    database: 6
+
+aws:
+  region: us-west-2
+  access_key: ASIA4U4C5K7MQNAS7CV3
+  secret_key: onMSUShCaVMjLO5S4QvkwBJu0Ww3e9K9C06wRVaj
+  session_token: IQoJb3JpZ2luX2VjEI7//////////wEaCXVzLXdlc3QtMiJGMEQCICTtKxOjlBZQziPf1CwbqnLJMT1sCUbFknZoznYrlfJoAiA4WSRGntKqPJn/JHv+EbOTZUeS6Yb8b85LFeyMTulDISqTAwiH//////////8BEAEaDDg2OTQ2ODU1OTMyMSIMoT2QzccHs76FBUPGKucCB5vy7kzCoNlLmN/HbHu3cwB4nvxkZiAnCEs1UQA3b/4AoepkAUfbLQ1sYxu6CP+DH30V6kNLRVQRa9bzpzVpfk0I0aLTwF3W/wpaRmJfAO59Crf9vd42Jn0Dqdb2sTvHm9G0ZzUz/KWPvJC2SBW14ihBs/kQUfs+kIg/ZF4At7WMSIa9oVOn/mi/0vcdT8TmclZECU3ySclUEcY110R617NmEAdruIuF7V6uPnPuifDYixFguL2ZF9lw7PO2dbqfGs2QmwFKmglGGP9QP0QSSpYAB2MV8ol3XjubF/y+WjM9YERKHLTHtzrNtBob9XtxBQcQ/mXRIlOddUNKkNjXCgjRrlHuYxY7op+5WP1vmF41ydIm0uCEaglcj9XYCtvhIirp5QJgTYPSh5uHe7Yekd/9zMrDBRufYh3jtx7yXxCENaCxkvdfoz7geoBp8YbZG4aT7JtSGpjkVPUZSGNi7kUZI+n3XSEwwa7UhwY6pwHOdWhrTX4uQ/jqgQQ9KH04Q4mMDypRJV8Ne7TvdkdhOIokcV2Al97u0tD8mD2GwEqdemt3mkl4jWjr/ruG6/H89rO8s4GjRLRrPpPFchJ8VRYSLHaKALXRrpfNSAbV67YndGVqAg/5miDLVYbxbvPvaZKJhOxN0HZgSqhaK4p3tNHT362w2Q2NrEzME9doi4hD0HlItcPluNLia6YBfP/Ib/GB1PfmRQ==
+  iot:
+    endpoint: adad81hpydixp-ats.iot.cn-northwest-1.amazonaws.com.cn
+  s3:
+    base-url: s3.us-west-2.amazonaws.com
+    bucket-name: iot-himalia-869468559321-us-west-2
+    expire: 1800
+
+wyze:
+  log:
+    stdout:
+      enable: true
+  scale:
+    service:
+      export-max-time: 10

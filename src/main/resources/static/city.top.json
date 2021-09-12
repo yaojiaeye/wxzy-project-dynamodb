@@ -1,0 +1,902 @@
+[
+  {
+    "country": "US",
+    "coord": {
+      "lon": -75.499901,
+      "lat": 43.000351
+    },
+    "name": "New York",
+    "id": 5128638
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -118.243683,
+      "lat": 34.052231
+    },
+    "name": "Los Angeles",
+    "id": 5368361
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -87.650047,
+      "lat": 41.850029
+    },
+    "name": "Chicago",
+    "id": 4887398
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -95.363274,
+      "lat": 29.763281
+    },
+    "name": "Houston",
+    "id": 4699066
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -112.074043,
+      "lat": 33.44838
+    },
+    "name": "Phoenix",
+    "id": 5308655
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -75.163788,
+      "lat": 39.952339
+    },
+    "name": "Philadelphia",
+    "id": 4560349
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -98.493629,
+      "lat": 29.42412
+    },
+    "name": "San Antonio",
+    "id": 4726206
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -117.157257,
+      "lat": 32.715328
+    },
+    "name": "San Diego",
+    "id": 5391811
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -96.806671,
+      "lat": 32.783058
+    },
+    "name": "Dallas",
+    "id": 4684888
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -121.894958,
+      "lat": 37.33939
+    },
+    "name": "San Jose",
+    "id": 5392171
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -83.045753,
+      "lat": 42.331429
+    },
+    "name": "Detroit",
+    "id": 4990729
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -90.229012,
+      "lat": 39.73394
+    },
+    "name": "Jacksonville",
+    "id": 4241704
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -92.433517,
+      "lat": 41.39695
+    },
+    "name": "Indianapolis",
+    "id": 4861716
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -122.419418,
+      "lat": 37.774929
+    },
+    "name": "San Francisco",
+    "id": 5391959
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -85.921379,
+      "lat": 39.201439
+    },
+    "name": "Columbus",
+    "id": 4256038
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -85.808029,
+      "lat": 38.758389
+    },
+    "name": "Austin",
+    "id": 4254010
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -90.048981,
+      "lat": 35.149529
+    },
+    "name": "Memphis",
+    "id": 4641239
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -97.320847,
+      "lat": 32.72541
+    },
+    "name": "Fort Worth",
+    "id": 4691930
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -76.61219,
+      "lat": 39.290379
+    },
+    "name": "Baltimore",
+    "id": 4347778
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -80.843132,
+      "lat": 35.227089
+    },
+    "name": "Charlotte",
+    "id": 4460243
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -106.486931,
+      "lat": 31.75872
+    },
+    "name": "El Paso",
+    "id": 5520993
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -87.906471,
+      "lat": 43.038898
+    },
+    "name": "Milwaukee",
+    "id": 5263045
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -92.055679,
+      "lat": 29.883261
+    },
+    "name": "Boston",
+    "id": 4317656
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -122.332069,
+      "lat": 47.606209
+    },
+    "name": "Seattle",
+    "id": 5809844
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -120.501472,
+      "lat": 47.500118
+    },
+    "name": "Washington",
+    "id": 5815135
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -81.0298,
+      "lat": 35.53125
+    },
+    "name": "Denver",
+    "id": 4463523
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -85.759407,
+      "lat": 38.254238
+    },
+    "name": "Louisville",
+    "id": 4299276
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -115.137222,
+      "lat": 36.174969
+    },
+    "name": "Las Vegas",
+    "id": 5506956
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -85.093048,
+      "lat": 42.60281
+    },
+    "name": "Nashville",
+    "id": 5003243
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -97.516434,
+      "lat": 35.46756
+    },
+    "name": "Oklahoma City",
+    "id": 4544349
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -97.323883,
+      "lat": 27.877251
+    },
+    "name": "Portland",
+    "id": 4720131
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -110.926483,
+      "lat": 32.221741
+    },
+    "name": "Tucson",
+    "id": 5318313
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -106.651138,
+      "lat": 35.084492
+    },
+    "name": "Albuquerque",
+    "id": 5454711
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.387978,
+      "lat": 33.749001
+    },
+    "name": "Atlanta",
+    "id": 4180439
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -73.657913,
+      "lat": 40.58844
+    },
+    "name": "Long Beach",
+    "id": 5125086
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -95.447441,
+      "lat": 29.538851
+    },
+    "name": "Fresno",
+    "id": 4692400
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -121.4944,
+      "lat": 38.58157
+    },
+    "name": "Sacramento",
+    "id": 5389489
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -111.822639,
+      "lat": 33.422272
+    },
+    "name": "Mesa",
+    "id": 5304391
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -94.627457,
+      "lat": 39.11417
+    },
+    "name": "Kansas City",
+    "id": 4273837
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -83.763237,
+      "lat": 34.597038
+    },
+    "name": "Cleveland",
+    "id": 4188377
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -75.977982,
+      "lat": 36.852928
+    },
+    "name": "Virginia Beach",
+    "id": 4791259
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -95.93779,
+      "lat": 41.25861
+    },
+    "name": "Omaha",
+    "id": 5074472
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -80.193657,
+      "lat": 25.774269
+    },
+    "name": "Miami",
+    "id": 4164138
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -95.636368,
+      "lat": 39.066669
+    },
+    "name": "Oakland",
+    "id": 4276543
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -95.992783,
+      "lat": 36.15398
+    },
+    "name": "Tulsa",
+    "id": 4553433
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -157.858337,
+      "lat": 21.30694
+    },
+    "name": "Honolulu",
+    "id": 5856195
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -93.26384,
+      "lat": 44.979969
+    },
+    "name": "Minneapolis",
+    "id": 5037649
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -104.821358,
+      "lat": 38.833881
+    },
+    "name": "Colorado Springs",
+    "id": 5417598
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.307709,
+      "lat": 37.760639
+    },
+    "name": "Arlington",
+    "id": 4282658
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -97.33754,
+      "lat": 37.692242
+    },
+    "name": "Wichita",
+    "id": 4281730
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -88.531998,
+      "lat": 37.826988
+    },
+    "name": "Raleigh",
+    "id": 4247770
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.606667,
+      "lat": 43.40836
+    },
+    "name": "Saint Louis",
+    "id": 5008414
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -117.867828,
+      "lat": 33.745571
+    },
+    "name": "Santa Ana",
+    "id": 5392900
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -117.914497,
+      "lat": 33.835289
+    },
+    "name": "Anaheim",
+    "id": 5323810
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -82.458427,
+      "lat": 27.947519
+    },
+    "name": "Tampa",
+    "id": 4174757
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.456886,
+      "lat": 39.161999
+    },
+    "name": "Cincinnati",
+    "id": 4508722
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -79.995888,
+      "lat": 40.44062
+    },
+    "name": "Pittsburgh",
+    "id": 5206379
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -119.018707,
+      "lat": 35.373291
+    },
+    "name": "Bakersfield",
+    "id": 5325738
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -88.320068,
+      "lat": 41.760578
+    },
+    "name": "Aurora",
+    "id": 4883817
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -83.555206,
+      "lat": 41.66394
+    },
+    "name": "Toledo",
+    "id": 5174035
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.1241,
+      "lat": 39.779781
+    },
+    "name": "Riverside",
+    "id": 4522586
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -121.290779,
+      "lat": 37.957699
+    },
+    "name": "Stockton",
+    "id": 5399020
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -97.396378,
+      "lat": 27.800579
+    },
+    "name": "Corpus Christi",
+    "id": 4683416
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -89.227608,
+      "lat": 42.542229
+    },
+    "name": "Newark",
+    "id": 4833930
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -149.900284,
+      "lat": 61.21806
+    },
+    "name": "Anchorage",
+    "id": 5879400
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -106.698936,
+      "lat": 44.348309
+    },
+    "name": "Buffalo",
+    "id": 5819881
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -95.896667,
+      "lat": 40.59528
+    },
+    "name": "Paul",
+    "id": 4832924
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.477722,
+      "lat": 37.988689
+    },
+    "name": "Lexington",
+    "id": 4297983
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -96.698891,
+      "lat": 33.01984
+    },
+    "name": "Plano",
+    "id": 4719457
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -85.12886,
+      "lat": 41.1306
+    },
+    "name": "Fort Wayne",
+    "id": 4920423
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -132.955566,
+      "lat": 56.8125
+    },
+    "name": "Petersburg",
+    "id": 5556338
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -105.366379,
+      "lat": 40.081928
+    },
+    "name": "Glendale",
+    "id": 5577409
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -74.077637,
+      "lat": 40.728161
+    },
+    "name": "Jersey City",
+    "id": 5099836
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -96.666962,
+      "lat": 40.799999
+    },
+    "name": "Lincoln",
+    "id": 5072006
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -87.590012,
+      "lat": 37.836151
+    },
+    "name": "Henderson",
+    "id": 4294494
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -94.382729,
+      "lat": 39.300282
+    },
+    "name": "Chandler",
+    "id": 4049176
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -97.417,
+      "lat": 42.028339
+    },
+    "name": "Norfolk",
+    "id": 5073965
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -79.791977,
+      "lat": 36.072639
+    },
+    "name": "Greensboro",
+    "id": 4469146
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -111.899033,
+      "lat": 33.509209
+    },
+    "name": "Scottsdale",
+    "id": 5313457
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -91.154549,
+      "lat": 30.45075
+    },
+    "name": "Baton Rouge",
+    "id": 4315588
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -86.80249,
+      "lat": 33.52066
+    },
+    "name": "Birmingham",
+    "id": 4049979
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -90.115356,
+      "lat": 32.461811
+    },
+    "name": "Madison",
+    "id": 4434663
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -90.075073,
+      "lat": 29.954651
+    },
+    "name": "New Orleans",
+    "id": 4335045
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -76.27494,
+      "lat": 36.819038
+    },
+    "name": "Chesapeake",
+    "id": 4752186
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -81.379242,
+      "lat": 28.53834
+    },
+    "name": "Orlando",
+    "id": 4167147
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -96.638878,
+      "lat": 32.912621
+    },
+    "name": "Garland",
+    "id": 4693003
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -80.278107,
+      "lat": 25.857599
+    },
+    "name": "Hialeah",
+    "id": 4158476
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -99.507538,
+      "lat": 27.506411
+    },
+    "name": "Laredo",
+    "id": 4705349
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -117.084198,
+      "lat": 32.640049
+    },
+    "name": "Chula Vista",
+    "id": 5336899
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -101.855171,
+      "lat": 33.577862
+    },
+    "name": "Lubbock",
+    "id": 5525577
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -119.813797,
+      "lat": 39.529629
+    },
+    "name": "Reno",
+    "id": 5511077
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -97.015038,
+      "lat": 37.351688
+    },
+    "name": "Akron",
+    "id": 4267427
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -78.898621,
+      "lat": 35.99403
+    },
+    "name": "Durham",
+    "id": 4464368
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -120.99688,
+      "lat": 37.639099
+    },
+    "name": "Modesto",
+    "id": 5373900
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -86.299973,
+      "lat": 32.36681
+    },
+    "name": "Montgomery",
+    "id": 4076784
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.932739,
+      "lat": 41.730881
+    },
+    "name": "Fremont",
+    "id": 4920512
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -93.750183,
+      "lat": 32.52515
+    },
+    "name": "Shreveport",
+    "id": 4341513
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -84.307709,
+      "lat": 37.760639
+    },
+    "name": "Arlington",
+    "id": 4282658
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -105.366379,
+      "lat": 40.081928
+    },
+    "name": "Glendale",
+    "id": 5577409
+  },
+  {
+    "country": "US",
+    "coord": {
+      "lon": -81.357887,
+      "lat": 41.153671
+    },
+    "name": "Kent",
+    "id": 5159537
+  }
+]
