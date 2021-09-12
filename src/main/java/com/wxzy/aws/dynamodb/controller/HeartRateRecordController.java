@@ -23,6 +23,13 @@ import com.wyze.common.response.ResultUtil;
 @RequestMapping("/plugin/scale")
 public class HeartRateRecordController {
 
+
+
+
+
+
+
+
     @Autowired
     private HeartRateRecordService heartRateRecordService;
 
