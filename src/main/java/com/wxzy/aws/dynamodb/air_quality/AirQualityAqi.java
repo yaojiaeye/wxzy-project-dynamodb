@@ -4,6 +4,10 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 public class AirQualityAqi {
 
+
+
+
+
     @JSONField(name = "display_name")
     private String displayName;
 
