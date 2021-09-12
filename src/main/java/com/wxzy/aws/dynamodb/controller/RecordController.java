@@ -2,6 +2,7 @@ package com.wxzy.aws.dynamodb.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,12 @@ import com.wyze.common.response.ResultCode;
 import com.wyze.common.response.ResultModel;
 import com.wyze.common.response.ResultUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author <a href="jiayao:little@163.com">little</a> version: 1.0 Description:xxxxxx
  **/
+@Slf4j
 @RestController
 @RequestMapping("/plugin/scale")
 public class RecordController {
@@ -33,12 +37,13 @@ public class RecordController {
 
     @PostMapping("/add_record")
     public ResultModel addScaleRecord(@RequestBody @Valid final ScaleRecordInput scaleRecordInput,
-        final BindingResult result) {
+        final BindingResult result, HttpServletRequest request) {
         if (result.hasErrors()) {
             throw new GeneralException(ResultCode.ParameterError, result.getFieldError().getDefaultMessage());
         }
         final String userId = "20133439";
-        this.recordService.addScaleRecord(userId, scaleRecordInput);
+        log.info("用户请求信息 userId  {} ", request.getHeader("yaojia"));
+        // this.recordService.addScaleRecord(userId, scaleRecordInput);
         return ResultUtil.success();
     }
 

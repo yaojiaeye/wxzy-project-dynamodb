@@ -7,11 +7,12 @@ import org.springframework.context.annotation.Profile;
 
 import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.AWSStaticCredentialsProvider;
-import com.amazonaws.auth.BasicAWSCredentials;
+import com.amazonaws.auth.BasicSessionCredentials;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.wyze.awsutils.secretsmanager.SecretsManagerHelper;
+import com.wyze.awsutils.sns.SnsHelper;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -30,16 +31,25 @@ public class AwsConfig {
      * @param secretKey
      * @return
      */
+    // @Bean
+    // @Profile("dev")
+    // public AWSCredentialsProvider staticCredentialsProvider(@Value("${aws.access-key}") final String accessKey,
+    // @Value("${aws.secret-key}") final String secretKey) {
+    //
+    // final BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+    //
+    // final AWSStaticCredentialsProvider provider = new AWSStaticCredentialsProvider(credentials);
+    //
+    // return provider;
+    // }
+
     @Bean
     @Profile("dev")
     public AWSCredentialsProvider staticCredentialsProvider(@Value("${aws.access-key}") final String accessKey,
-        @Value("${aws.secret-key}") final String secretKey) {
-
-        final BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
-
-        final AWSStaticCredentialsProvider provider = new AWSStaticCredentialsProvider(credentials);
-
-        return provider;
+        @Value("${aws.secret-key}") final String secretKey, @Value("${aws.session_token}") final String token) {
+        // final BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+        final BasicSessionCredentials credentials = new BasicSessionCredentials(accessKey, secretKey, token);
+        return new AWSStaticCredentialsProvider(credentials);
     }
 
     /**
@@ -65,5 +75,10 @@ public class AwsConfig {
 
         return AmazonDynamoDBClientBuilder.standard().withRegion(this.region).withCredentials(awsCredentialsProvider)
             .build();
+    }
+
+    @Bean
+    public SnsHelper snsHelper(final AWSCredentialsProvider awsCredentialsProvider) {
+        return new SnsHelper(awsCredentialsProvider, this.region);
     }
 }

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wxzy.aws.dynamodb.service.UserProfileService;
+import com.wxzy.aws.dynamodb.watch.vo.A;
 import com.wyze.common.response.ResultModel;
 import com.wyze.common.response.ResultUtil;
 
@@ -21,8 +22,8 @@ public class UserProfileController {
 
     @PostMapping("/user_data_export")
     public ResultModel userDataExport() {
-        String userId = "8d4fa51b8cc02aaecdea9ffa16232e7b";
-        userProfileService.queryUserData(userId);
-        return ResultUtil.success();
+        // String userId = "8d4fa51b8cc02aaecdea9ffa16232e7b";
+        // userProfileService.queryUserData(userId);
+        return ResultUtil.success(new A());
     }
 }
